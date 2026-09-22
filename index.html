@@ -1878,6 +1878,13 @@
       </div>`;
 
     if (new URLSearchParams(window.location.search).get('page') === 'teachers') {
+      const teacherBackButton = document.querySelector('.t-back-btn');
+      if (teacherBackButton) {
+        teacherBackButton.textContent = '← 아카데미로 돌아가기';
+        teacherBackButton.onclick = () => {
+          window.location.href = 'https://busanthebox-coder.github.io/thebox/first/academy.html#teachers';
+        };
+      }
       showTeachers();
     }
   });
