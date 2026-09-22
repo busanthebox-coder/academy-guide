@@ -1876,6 +1876,10 @@
           <div class="t-sch-row"><span class="t-sch-ico">📌</span><span class="t-sch-val">세부 시간표와 수업 배정은 상담 후 안내드립니다.</span></div>
         </div>
       </div>`;
+
+    if (new URLSearchParams(window.location.search).get('page') === 'teachers') {
+      showTeachers();
+    }
   });
 
   const wifiData = {
