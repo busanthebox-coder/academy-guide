@@ -1168,16 +1168,16 @@
     <button class="tlc-btn" onclick="showTeachers()">
       <div class="tlc-left">
         <div class="tlc-avatars">
-          <div class="tlc-av"><img src="assets/teachers/sullin.jpg" alt="설린 선생님"/></div>
-          <div class="tlc-av"><img src="assets/teachers/evelyn.jpg" alt="에블린 선생님"/></div>
-          <div class="tlc-av"><img src="assets/teachers/jacob.jpg" alt="제이콥 선생님"/></div>
-          <div class="tlc-av"><img src="assets/teachers/nani.jpg" alt="나니 선생님"/></div>
-          <div class="tlc-av"><img src="assets/teachers/diana.png" alt="다이애나 선생님"/></div>
           <div class="tlc-av"><img src="assets/teachers/rachel.png" alt="레이첼 선생님"/></div>
+          <div class="tlc-av"><img src="assets/teachers/diana.png" alt="다이애나 선생님"/></div>
+          <div class="tlc-av"><img src="assets/teachers/sullin.jpg" alt="설린 선생님"/></div>
+          <div class="tlc-av"><img src="assets/teachers/nani.jpg" alt="나니 선생님"/></div>
+          <div class="tlc-av"><img src="assets/teachers/jacob.jpg" alt="제이콥 선생님"/></div>
+          <div class="tlc-av"><img src="assets/teachers/evelyn.jpg" alt="에블린 선생님"/></div>
         </div>
         <div>
           <div class="tlc-title">부산점 선생님 보기</div>
-          <div class="tlc-sub">설린 · 에블린 · 제이콥 · 나니 · 다이애나 · 레이첼</div>
+          <div class="tlc-sub">레이첼 · 다이애나 · 설린 · 나니 · 제이콥 · 에블린</div>
         </div>
       </div>
       <div class="tlc-arrow">→</div>
@@ -1197,7 +1197,7 @@
         <div style="position:relative; z-index:1;">
           <p class="t-eyebrow">Teachers</p>
           <h2 class="t-title">담당 <span>선생님</span> 안내</h2>
-          <p class="t-desc">부산점 담당 선생님은 설린, 에블린, 제이콥, 나니, 다이애나, 레이첼입니다.<br>세부 시간표와 수업 배정은 상담 후 안내드립니다.</p>
+          <p class="t-desc">부산점 담당 선생님은 레이첼, 다이애나, 설린, 나니, 제이콥, 에블린입니다.<br>세부 시간표와 수업 배정은 상담 후 안내드립니다.</p>
         </div>
       </div>
       <div class="t-grid"></div>
@@ -1876,6 +1876,15 @@
           <div class="t-sch-row"><span class="t-sch-ico">📌</span><span class="t-sch-val">세부 시간표와 수업 배정은 상담 후 안내드립니다.</span></div>
         </div>
       </div>`;
+
+    const teacherOrder = ['레이첼', '다이애나', '설린', '나니', '제이콥', '에블린'];
+    const teacherCards = Array.from(teacherGrid.querySelectorAll('.t-card'));
+    teacherOrder.forEach((name) => {
+      const card = teacherCards.find((item) =>
+        item.querySelector('.t-card-name')?.textContent.trim() === name
+      );
+      if (card) teacherGrid.appendChild(card);
+    });
 
     if (new URLSearchParams(window.location.search).get('page') === 'teachers') {
       const teacherBackButton = document.querySelector('.t-back-btn');
